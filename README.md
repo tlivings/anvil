@@ -26,6 +26,17 @@ anvil('sword vs spear', function (forge, hammer) {
 });
 ```
 
+### Async
+
+Just pass a callback to do async.
+
+```javascript
+forge.add('spear', function (next) {
+    ...
+    next();
+});
+```
+
 # API
 
 `anvil` takes a description (which does nothing) and invokes the supplied callback with a `forge` and a `hammer`.
