@@ -39,7 +39,7 @@ forge.add('spear', function (next) {
 
 # API
 
-`anvil` takes a description (which does nothing) and invokes the supplied callback with a `forge` and a `hammer`.
+`anvil` takes a description and invokes the supplied callback with a `forge` and a `hammer`.
 
 ### forge
 

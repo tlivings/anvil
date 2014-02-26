@@ -1,7 +1,8 @@
 'use strict';
 
 var test = require('tape'),
-    anvil = require('../lib');
+    anvil = require('../lib'),
+    crypto = require('crypto');
 
 test('anvil', function (t) {
 
@@ -11,9 +12,9 @@ test('anvil', function (t) {
         t.equal(typeof anvil, 'function', 'anvil is a function.');
     });
 
-    t.test('create', function (t) {
+    t.test('runtime', function (t) {
 
-        anvil('operation1 and operation2', function (forge, hammer) {
+        anvil('md5 hash', function (forge, hammer) {
 
             forge.before(function (next) {
                 t.pass('suite before called.');
@@ -22,11 +23,8 @@ test('anvil', function (t) {
 
             forge.after(function (error, results) {
                 t.ok(!error, 'no error.');
-                t.equal(results.length, 2, '2 reports in results.');
+                t.ok(results.length, 'results.');
                 t.pass('suite before called.');
-                results.forEach(function (report) {
-                    console.log('%s: %d operations/second.', report.name, report.ops);
-                });
                 t.end();
             });
 
@@ -40,12 +38,8 @@ test('anvil', function (t) {
                 next();
             });
 
-            forge.add('operation1', function () {
-
-            });
-
-            forge.add('operation2', function () {
-
+            forge.add('md5', function () {
+                crypto.createHash('md5').update('hello world').digest('hex');
             });
 
             hammer();
