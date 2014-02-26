@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tlivings/anvil.png)](https://travis-ci.org/tlivings/anvil) [![NPM version](https://badge.fury.io/js/anvil.png)](http://badge.fury.io/js/anvil)
+
 # Anvil
 
 A lightweight bench-suite module for [hammertime](https://github.com/tlivings/hammertime).
